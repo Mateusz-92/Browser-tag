@@ -23,9 +23,9 @@ type Props = {
 const TagTable: React.FC<Props> = ({ tags }) => {
   const defaultRowsPerPage: number = 5;
   const maxValue = 100;
-  const pageZero: number = 0;
+  const numZero: number = 0;
   const [sortedTags, setSortedTags] = useState(tags);
-  const [page, setPage] = useState(pageZero);
+  const [page, setPage] = useState(numZero);
   const [rowsPerPage, setRowsPerPage] = useState(defaultRowsPerPage);
 
   const { direction, field, sortTag } = useSort();
@@ -42,14 +42,14 @@ const TagTable: React.FC<Props> = ({ tags }) => {
     }
 
     setRowsPerPage(value);
-    setPage(pageZero);
+    setPage(numZero);
   };
 
   useEffect(() => {
-    setPage(pageZero);
+    setPage(numZero);
     const sorted = sortTag(direction, field, tags);
     setSortedTags(sorted);
-  }, [direction, field, pageZero, sortTag, tags]);
+  }, [direction, field, numZero, sortTag, tags]);
 
   return (
     <>
@@ -68,7 +68,7 @@ const TagTable: React.FC<Props> = ({ tags }) => {
         >
           <SortSelect />
           <TextField
-            InputProps={{ inputProps: { min: 1, max: 100 } }}
+            InputProps={{ inputProps: { max: 100, min: 1 } }}
             label='Rows per page'
             sx={{ margin: '20px', width: '200px' }}
             type='number'
@@ -99,8 +99,10 @@ const TagTable: React.FC<Props> = ({ tags }) => {
           component='div'
           count={sortedTags.length}
           page={page}
-          rowsPerPage={isNaN(rowsPerPage) ? 0 : rowsPerPage}
           rowsPerPageOptions={[]}
+          rowsPerPage={isNaN(rowsPerPage)
+? numZero
+: rowsPerPage}
           sx={{
             '@media (max-width: 600px)': {
               alignItems: 'center',
