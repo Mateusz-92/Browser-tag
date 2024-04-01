@@ -8,6 +8,9 @@ import React, {
 } from 'react';
 
 import { Tag } from '../api/api';
+const numOne: number = 1;
+const numMinusOne: number = -1;
+const numZero: number = 0;
 
 export type SortDirection = 'asc' | 'desc';
 
@@ -31,13 +34,9 @@ export const useSort = (): SortContextType => {
 
 export const SortProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [field, setField] = useState<keyof Tag>('name');
-  const [direction, setDirection] = useState<'asc' | 'desc'>('asc');
+  const [direction, setDirection] = useState<SortDirection>('asc');
 
-  const numOne: number = 1;
-  const numMinusOne: number = -1;
-  const numZero: number = 0;
-
-  const sortTag = (direction: 'asc' | 'desc', field: keyof Tag, tags: Tag[]): Tag[] => {
+  const sortTag = (direction: SortDirection, field: keyof Tag, tags: Tag[]): Tag[] => {
     const sortedData = [...tags].sort((a, b) => {
       if (direction === 'asc') {
         if (a[field] < b[field]) return numMinusOne;
