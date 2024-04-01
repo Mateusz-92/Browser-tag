@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import {
   Paper,
   Table,
@@ -49,6 +49,10 @@ const TagTable: React.FC<Props> = ({ tags }) => {
     setSortedTags(sorted);
   }, [direction, field, numZero, sortTag, tags]);
 
+  const paginatedTags = useMemo(() => {
+    return sortedTags.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage);
+  }, [page, rowsPerPage, sortedTags]);
+
   return (
     <>
       <TableContainer component={Paper}>
@@ -63,7 +67,7 @@ const TagTable: React.FC<Props> = ({ tags }) => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {sortedTags.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((tag) => (
+            {paginatedTags.map((tag) => (
               <TableRow key={tag.name}>
                 <TableCell>{tag.name}</TableCell>
                 <TableCell align='right'>{tag.count}</TableCell>
@@ -76,9 +80,7 @@ const TagTable: React.FC<Props> = ({ tags }) => {
           count={sortedTags.length}
           page={page}
           rowsPerPageOptions={[]}
-          rowsPerPage={isNaN(rowsPerPage)
-? numZero
-: rowsPerPage}
+          rowsPerPage={isNaN(rowsPerPage) ? numZero : rowsPerPage}
           sx={{
             '@media (max-width: 600px)': {
               alignItems: 'center',
