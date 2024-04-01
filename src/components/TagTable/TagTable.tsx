@@ -19,11 +19,10 @@ import SortSelect from '../SortSelect/SortSelect';
 type Props = {
   tags: Tag[];
 };
-
+const defaultRowsPerPage: number = 5;
+const maxValue = 100;
+const numZero: number = 0;
 const TagTable: React.FC<Props> = ({ tags }) => {
-  const defaultRowsPerPage: number = 5;
-  const maxValue = 100;
-  const numZero: number = 0;
   const [sortedTags, setSortedTags] = useState(tags);
   const [page, setPage] = useState(numZero);
   const [rowsPerPage, setRowsPerPage] = useState(defaultRowsPerPage);
@@ -100,9 +99,7 @@ const TagTable: React.FC<Props> = ({ tags }) => {
           count={sortedTags.length}
           page={page}
           rowsPerPageOptions={[]}
-          rowsPerPage={isNaN(rowsPerPage)
-? numZero
-: rowsPerPage}
+          rowsPerPage={isNaN(rowsPerPage) ? numZero : rowsPerPage}
           sx={{
             '@media (max-width: 600px)': {
               alignItems: 'center',
