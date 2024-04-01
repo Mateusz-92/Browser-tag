@@ -22,7 +22,7 @@ type Props = {
 
 const TagTable: React.FC<Props> = ({ tags }) => {
   const defaultRowsPerPage: number = 5;
-  const minValue: number = 1;
+  const maxValue = 100;
   const pageZero: number = 0;
   const [sortedTags, setSortedTags] = useState(tags);
   const [page, setPage] = useState(pageZero);
@@ -36,8 +36,12 @@ const TagTable: React.FC<Props> = ({ tags }) => {
 
   const handleChangeRowsPerPage = (event: React.ChangeEvent<HTMLInputElement>) => {
     const numberBase: number = 10;
-    const value = parseInt(event.target.value, numberBase);
-    setRowsPerPage(value || minValue);
+    let value = parseInt(event.target.value, numberBase);
+    if (value > maxValue) {
+      value = maxValue;
+    }
+
+    setRowsPerPage(value);
     setPage(pageZero);
   };
 
@@ -64,7 +68,7 @@ const TagTable: React.FC<Props> = ({ tags }) => {
         >
           <SortSelect />
           <TextField
-            InputProps={{ inputProps: { min: 1 } }}
+            InputProps={{ inputProps: { min: 1, max: 100 } }}
             label='Rows per page'
             sx={{ margin: '20px', width: '200px' }}
             type='number'
@@ -95,7 +99,7 @@ const TagTable: React.FC<Props> = ({ tags }) => {
           component='div'
           count={sortedTags.length}
           page={page}
-          rowsPerPage={rowsPerPage}
+          rowsPerPage={isNaN(rowsPerPage) ? 0 : rowsPerPage}
           rowsPerPageOptions={[]}
           sx={{
             '@media (max-width: 600px)': {
