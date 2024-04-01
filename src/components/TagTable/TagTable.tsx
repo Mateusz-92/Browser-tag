@@ -21,8 +21,9 @@ type Props = {
 };
 const defaultRowsPerPage: number = 5;
 const maxValue = 100;
-const numZero: number = 0;
+
 const TagTable: React.FC<Props> = ({ tags }) => {
+  const numZero: number = 0;
   const [sortedTags, setSortedTags] = useState(tags);
   const [page, setPage] = useState(numZero);
   const [rowsPerPage, setRowsPerPage] = useState(defaultRowsPerPage);
