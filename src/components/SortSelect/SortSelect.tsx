@@ -5,6 +5,20 @@ import { Tag } from '../../api/api';
 import { SortDirection, useSort } from '../../context/SortContext';
 import SortType from '../SortType/SortType';
 
+type Option = {
+  label: string;
+  value: string;
+};
+
+const optionsName: Option[] = [
+  { label: 'Name (Alphabetical)', value: 'name' },
+  { label: 'Post Count', value: 'count' },
+];
+const optionsDirection: Option[] = [
+  { label: 'Ascending', value: 'asc' },
+  { label: 'Descending', value: 'desc' },
+];
+
 const SortSelect: React.FC = () => {
   const { direction, field, setDirection, setField } = useSort();
 
@@ -28,19 +42,13 @@ const SortSelect: React.FC = () => {
       <SortType
         label='Sort Field'
         value={field}
-        options={[
-          { label: 'Name (Alphabetical)', value: 'name' },
-          { label: 'Post Count', value: 'count' },
-        ]}
+        options={optionsName}
         onChange={handleFieldChange}
       />
       <SortType
         label='Sort Direction'
         value={direction}
-        options={[
-          { label: 'Ascending', value: 'asc' },
-          { label: 'Descending', value: 'desc' },
-        ]}
+        options={optionsDirection}
         onChange={handleDirectionChange}
       />
     </Grid>
