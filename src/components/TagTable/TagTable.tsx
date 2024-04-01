@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import {
-  Container,
   Paper,
   Table,
   TableBody,
@@ -9,12 +8,11 @@ import {
   TableHead,
   TablePagination,
   TableRow,
-  TextField,
 } from '@mui/material';
 
 import { Tag } from '../../api/api';
 import { useSort } from '../../context/SortContext';
-import SortSelect from '../SortSelect/SortSelect';
+import TableHeader from '../TableHeader/TableHeader';
 
 type Props = {
   tags: Tag[];
@@ -54,29 +52,7 @@ const TagTable: React.FC<Props> = ({ tags }) => {
   return (
     <>
       <TableContainer component={Paper}>
-        <Container
-          sx={{
-            '@media (min-width: 600px)': {
-              flexDirection: 'row',
-              justifyContent: 'center',
-            },
-            alignItems: 'center',
-            display: 'flex',
-            flexDirection: 'column',
-            marginTop: '100px',
-          }}
-        >
-          <SortSelect />
-          <TextField
-            InputProps={{ inputProps: { max: 100, min: 1 } }}
-            label='Rows per page'
-            sx={{ margin: '20px', width: '200px' }}
-            type='number'
-            value={rowsPerPage}
-            onChange={handleChangeRowsPerPage}
-          />
-        </Container>
-
+        <TableHeader valueProp={rowsPerPage} onChangeProp={handleChangeRowsPerPage} />
         <Table>
           <TableHead>
             <TableRow>
@@ -100,7 +76,9 @@ const TagTable: React.FC<Props> = ({ tags }) => {
           count={sortedTags.length}
           page={page}
           rowsPerPageOptions={[]}
-          rowsPerPage={isNaN(rowsPerPage) ? numZero : rowsPerPage}
+          rowsPerPage={isNaN(rowsPerPage)
+? numZero
+: rowsPerPage}
           sx={{
             '@media (max-width: 600px)': {
               alignItems: 'center',
