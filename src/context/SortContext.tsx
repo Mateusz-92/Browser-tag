@@ -19,10 +19,10 @@ type SortContextType = {
   sortTag: (direction: SortDirection, field: keyof Tag, tags: Tag[]) => Tag[];
 };
 
-export const SortContext = createContext<SortContextType | undefined>(undefined);
+export const useSortContext = createContext<SortContextType | undefined>(undefined);
 
 export const useSort = (): SortContextType => {
-  const context = useContext(SortContext);
+  const context = useContext(useSortContext);
   if (!context) {
     throw new Error('useSort must be used within a SortProvider');
   }
@@ -61,5 +61,5 @@ export const SortProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     sortTag,
   };
 
-  return <SortContext.Provider value={value}>{children}</SortContext.Provider>;
+  return <useSortContext.Provider value={value}>{children}</useSortContext.Provider>;
 };
