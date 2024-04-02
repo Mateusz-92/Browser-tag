@@ -41,14 +41,14 @@ const SortSelect: React.FC = () => {
     >
       <SortType
         label='Sort Field'
-        value={field}
         options={optionsName}
+        value={field}
         onChange={handleFieldChange}
       />
       <SortType
         label='Sort Direction'
-        value={direction}
         options={optionsDirection}
+        value={direction}
         onChange={handleDirectionChange}
       />
     </Grid>
