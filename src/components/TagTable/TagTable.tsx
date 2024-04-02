@@ -80,7 +80,9 @@ const TagTable: React.FC<Props> = ({ tags }) => {
           count={sortedTags.length}
           page={page}
           rowsPerPageOptions={[]}
-          rowsPerPage={isNaN(rowsPerPage) ? numZero : rowsPerPage}
+          rowsPerPage={isNaN(rowsPerPage)
+? numZero
+: rowsPerPage}
           sx={{
             '@media (max-width: 600px)': {
               alignItems: 'center',
