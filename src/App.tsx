@@ -1,8 +1,11 @@
+import { Home } from './components/Home/Home';
+import AllTheProviders from './providers/AllTheProviders';
+
 const App = () => {
   return (
-    <>
-      <div>Browser-tag app</div>
-    </>
+    <AllTheProviders>
+      <Home />
+    </AllTheProviders>
   );
 };
 

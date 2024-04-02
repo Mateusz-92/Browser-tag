@@ -6,7 +6,6 @@
     "jest": true
   },
   "parser": "@typescript-eslint/parser",
-  //czego eslint ma nie sprawdzać
   "ignorePatterns": ["dist", ".eslintrc.json", "*.config.ts", "*.config.js"],
   "extends": [
     "eslint:recommended",
