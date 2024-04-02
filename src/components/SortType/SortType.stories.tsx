@@ -1,7 +1,7 @@
 import { SelectChangeEvent } from '@mui/material';
 import type { Meta, StoryFn } from '@storybook/react';
 
-import SortType from '../components/SortType/SortType';
+import SortType from './SortType';
 
 const meta: Meta<typeof SortType> = {
   component: SortType,
@@ -10,7 +10,7 @@ const meta: Meta<typeof SortType> = {
 
 export default meta;
 
-export const Primary: StoryFn = (args) => (
+export const DefaultSortField: StoryFn = (args) => (
   <SortType
     label='Sort Field'
     value='name'
@@ -23,7 +23,7 @@ export const Primary: StoryFn = (args) => (
     {...args}
   />
 );
-Primary.args = {
+DefaultSortField.args = {
   label: 'Sort Field',
   onChange: (event: SelectChangeEvent<string>) =>
     // eslint-disable-next-line no-console

@@ -1,4 +1,4 @@
-import TagTable from '../components/TagTable/TagTable';
+import TagTable from './TagTable';
 
 export default {
   component: TagTable,

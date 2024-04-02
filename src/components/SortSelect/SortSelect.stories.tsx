@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import SortSelect from '../components/SortSelect/SortSelect';
+import SortSelect from './SortSelect';
 
 const meta: Meta<typeof SortSelect> = {
   component: SortSelect,
