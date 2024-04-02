@@ -1,5 +1,5 @@
 import { Component, ErrorInfo, ReactNode } from 'react';
-import { Button, Container, Typography } from '@mui/material';
+import { Container, Typography } from '@mui/material';
 
 interface Props {
   children?: ReactNode;
@@ -24,10 +24,6 @@ class ErrorBoundary extends Component<Props, State> {
     console.error('Uncaught error:', error, errorInfo);
   }
 
-  refreshPage = () => {
-    window.location.reload();
-  };
-
   public render() {
     if (this.state.hasError) {
       return (
@@ -44,9 +40,6 @@ class ErrorBoundary extends Component<Props, State> {
           <Typography gutterBottom textAlign={'center'} variant='h5'>
             Sorry.. there was an error
           </Typography>
-          <Button variant='contained' onClick={this.refreshPage}>
-            Refresh Page
-          </Button>
         </Container>
       );
     }
