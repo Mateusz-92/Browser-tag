@@ -3,11 +3,9 @@ import AllTheProviders from './providers/AllTheProviders';
 
 const App = () => {
   return (
-    <>
-      <AllTheProviders>
-        <Home />
-      </AllTheProviders>
-    </>
+    <AllTheProviders>
+      <Home />
+    </AllTheProviders>
   );
 };
 
