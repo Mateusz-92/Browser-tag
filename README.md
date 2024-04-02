@@ -1,31 +1,47 @@
-# React + TypeScript + Vite
+<h1 align="center">
+<img src=src\readmeFiles\appView.png alt="app logo" width="100%"/>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+</h1>
 
-Currently, two official plugins are available:
+<h4 align="center">Browser-tag</h4>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Project Overview 🎨
 
-## Expanding the ESLint configuration
+This project fetch the number of posts and their associated tags and allows them to be sorted in ascending or descending order by alphabet or number of posts.
+<br>
+The application uses:
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- React Query library for managing application state based on data downloaded from the API. React Query provides a tool for retrieving, caching and managing data from external sources such as APIs,
+- Context API to manage application state without the need to use additional libraries,
+- npm scripts: "start: "vite", "build": "tsc && vite build" are responsible for initializing the development environment (start) and building the project in production (build) along with Type Script, "storybook" runs Storybook, a tool Launch UI in use.
 
-- Configure the top-level `parserOptions` property like this:
+## Tech/framework used 🧰
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-};
+| Tech                                          | Description                          |
+| --------------------------------------------- | ------------------------------------ |
+| [Typescript](https://www.typescriptlang.org/) | Javascript superset language         |
+| [React](https://reactjs.org/)                 | Library for building user interfaces |
+|                                               |
+
+## Performance 💨
+
+<img src="src\readmeFiles\performance.png" alt="Browser-tag" >
+
+<br/>
+
+## Installation 💿
+
+```bash
+
+git clone https://github.com/Mateusz-92/Browser-tag.git
+
+npm install
+
+
+npm start
+
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
-# Browser-tag
+## Live 🎆
+
+https://mateusz-92.github.io/Browser-tag/
