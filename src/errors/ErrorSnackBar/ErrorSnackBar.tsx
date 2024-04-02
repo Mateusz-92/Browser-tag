@@ -13,12 +13,9 @@ const ErrorSnackbar: React.FC<ErrorSnackbarProps> = ({ error }) => {
     const timeoutId = setTimeout(() => {
       setOpen(false);
     }, durationTime);
-
     return () => clearTimeout(timeoutId);
   }, []);
-  if (!open) {
-    throw Error(error);
-  }
+
   return <Snackbar autoHideDuration={durationTime} message={error} open={open} />;
 };
 
