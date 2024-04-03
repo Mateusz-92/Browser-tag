@@ -21,12 +21,12 @@ The application uses:
 ## Tech/framework used 🧰
 
 | Tech                                          | Description                          |
-| --------------------------------------------- | ------------------------------------ | --- |
+| --------------------------------------------- | ------------------------------------ |
 | [Typescript](https://www.typescriptlang.org/) | Javascript superset language         |
 | [React](https://reactjs.org/)                 | Library for building user interfaces |
 | [Axios](https://axios-http.com/)              | Library used for making requests     |
-| [Tanstack](https://tanstack.com/)             | Library that reduce server requests  |     |
-| [Storybook](https://storybook.js.org/)        | Frontend Workshop for UI Components  |     |
+| [Tanstack](https://tanstack.com/)             | Library that reduce server requests  |
+| [Storybook](https://storybook.js.org/)        | Frontend Workshop for UI Components  |
 
 ## Performance 💨
 
@@ -41,7 +41,6 @@ The application uses:
 git clone https://github.com/Mateusz-92/Browser-tag.git
 
 npm install
-
 
 npm start
 
